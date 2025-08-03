@@ -9,7 +9,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
+  // Remove output: 'export' to work with Netlify plugin
 }
 
 export default nextConfig
