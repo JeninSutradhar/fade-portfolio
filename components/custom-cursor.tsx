@@ -7,8 +7,23 @@ export const CustomCursor = () => {
   const [isPointer, setIsPointer] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [isClicking, setIsClicking] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                            window.innerWidth <= 768 ||
+                            ('ontouchstart' in window)
+      setIsMobile(isMobileDevice)
+      return isMobileDevice
+    }
+
+    // Don't initialize cursor on mobile devices
+    if (checkMobile()) {
+      return
+    }
+
     const updateCursor = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY })
     }
@@ -24,12 +39,14 @@ export const CustomCursor = () => {
     const handleMouseDown = () => setIsClicking(true)
     const handleMouseUp = () => setIsClicking(false)
 
+    // Hide default cursor only on desktop
     document.documentElement.style.cursor = "none"
-    
+
     window.addEventListener("mousemove", updateCursor)
     window.addEventListener("mousemove", updateCursorStyle)
     window.addEventListener("mousedown", handleMouseDown)
     window.addEventListener("mouseup", handleMouseUp)
+    window.addEventListener("resize", checkMobile)
 
     return () => {
       document.documentElement.style.cursor = "auto"
@@ -37,8 +54,14 @@ export const CustomCursor = () => {
       window.removeEventListener("mousemove", updateCursorStyle)
       window.removeEventListener("mousedown", handleMouseDown)
       window.removeEventListener("mouseup", handleMouseUp)
+      window.removeEventListener("resize", checkMobile)
     }
   }, [position.x, position.y])
+
+  // Don't render cursor on mobile devices
+  if (isMobile) {
+    return null
+  }
 
   return (
     <>

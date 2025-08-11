@@ -85,3 +85,65 @@ img {
     background-position: -40px -40px;
   }
 }
+
+/* Premium loader animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.loader-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.loader-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.loader-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Hide default scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* For IE and Edge */
+body {
+  -ms-overflow-style: none;
+}

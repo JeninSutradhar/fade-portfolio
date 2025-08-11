@@ -76,7 +76,7 @@ export const ProjectsSection = () => {
 
   // Create multiple copies for infinite scroll
   const allProjects = [...projects, ...projects, ...projects]
-  const cardWidth = 400 + 24 // 400px card + 24px gap
+  const cardWidth = 350 + 20 // Reduced card width + gap for better fit
   const totalWidth = cardWidth * projects.length
 
   // Animation loop using requestAnimationFrame
@@ -128,7 +128,7 @@ export const ProjectsSection = () => {
   return (
     <>
       <section id="projects" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="w-full px-6">
           <div className="text-center mb-8">
             <span className="text-gray-400 text-lg italic font-light font-[var(--font-playfair)]">-- Projects --</span>
           </div>
@@ -139,7 +139,7 @@ export const ProjectsSection = () => {
           {/* Infinite Scrolling Container */}
           <div className="overflow-hidden w-full" ref={containerRef}>
             <div
-              className="flex space-x-6 will-change-transform"
+              className="flex space-x-5 will-change-transform"
               style={{
                 transform: `translateX(${translateX}px)`,
                 width: `${cardWidth * allProjects.length}px`,
@@ -148,7 +148,7 @@ export const ProjectsSection = () => {
               {allProjects.map((project, index) => (
                 <div
                   key={`${project.id}-${index}`}
-                  className="flex-shrink-0 w-[400px] h-[300px] group cursor-pointer relative"
+                  className="flex-shrink-0 w-[350px] h-[280px] group cursor-pointer relative"
                   onMouseMove={handleMouseMove}
                   onMouseEnter={() => setHoveredCard(project.id)}
                   onMouseLeave={() => setHoveredCard(null)}

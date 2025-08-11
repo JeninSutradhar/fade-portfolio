@@ -10,12 +10,12 @@ export const Footer = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
           <div className="text-gray-400 text-sm font-[var(--font-plus-jakarta)]">
-            © {new Date().getFullYear()} Jenin Sutrahdar. All rights reserved.
+            © {new Date().getFullYear()} Jenin Sutradhar. All rights reserved.
           </div>
 
           <div className="flex items-center space-x-4">
             <a
-              href="https://github.com/JeninSutrahdar/fade-portfolio"
+              href="https://github.com/JeninSutradhar/flow-portfolio"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-5 py-2 rounded-full hover:bg-white/20 transition-all duration-300 flex items-center text-xs font-medium button-glow"

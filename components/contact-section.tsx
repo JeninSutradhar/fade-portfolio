@@ -40,11 +40,11 @@ export const ContactSection = () => {
           <a href="https://twitter.com/jeninsutradhar" aria-label="Twitter Profile" className="group">
             <Twitter className="w-8 h-8 text-gray-400 group-hover:text-white cursor-pointer transition-colors" />
           </a>
-          <a href="https://linkedin.com/in/jenin-sutrahdar" aria-label="LinkedIn Profile" className="group">
+          <a href="https://linkedin.com/in/jenin-sutradhar" aria-label="LinkedIn Profile" className="group">
             <Linkedin className="w-8 h-8 text-gray-400 group-hover:text-white cursor-pointer transition-colors" />
           </a>
           <a
-            href="https://github.com/JeninSutrahdar"
+            href="https://github.com/JeninSutradhar"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
@@ -55,8 +55,8 @@ export const ContactSection = () => {
         </div>
 
         <div className="text-gray-400 text-lg font-medium font-[var(--font-plus-jakarta)]">
-          <a href="mailto:jeninsutrahdar@gmail.com" className="hover:text-white transition-colors underline">
-            jeninsutrahdar@gmail.com
+          <a href="mailto:jeninsutradhar@gmail.com" className="hover:text-white transition-colors underline">
+            jeninsutradhar@gmail.com
           </a>
         </div>
       </div>

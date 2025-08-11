@@ -1,19 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export const FluidBackground = () => {
-  // State to track if content is loaded to apply blur effect
-  const [contentLoaded, setContentLoaded] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
 
-  useEffect(() => {
-    // Set content as loaded after a short delay
-    const timer = setTimeout(() => {
-      setContentLoaded(true)
-    }, 300)
-
-    return () => clearTimeout(timer)
-  }, [])
+  const handleVideoLoad = () => {
+    setVideoLoaded(true)
+  }
 
   return (
     <>
@@ -24,11 +18,28 @@ export const FluidBackground = () => {
           loop
           muted
           playsInline
-          className="absolute w-full h-full object-cover"
+          className={`
+            absolute w-full h-full object-cover transition-opacity duration-1000
+            ${videoLoaded ? 'opacity-100' : 'opacity-0'}
+          `}
+          onCanPlayThrough={handleVideoLoad}
+          onLoadedData={handleVideoLoad}
         >
           <source src="/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        {/* Black transparent overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/80" />
+
+        {/* Fallback background while video loads */}
+        <div
+          className={`
+            absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800
+            transition-opacity duration-1000
+            ${videoLoaded ? 'opacity-0' : 'opacity-100'}
+          `}
+        />
       </div>
     </>
   )

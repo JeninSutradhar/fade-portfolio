@@ -49,7 +49,7 @@ export const AboutSection = () => {
             <div className="aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 backdrop-blur-sm relative">
               <img
                 src="https://img.freepik.com/premium-vector/black-white-texture-background-vector-image-overlay-monochrome-grunge-texture_867643-19921.jpg"
-                alt="Jenin Sutrahdar Process"
+                alt="Jenin Sutradhar Process"
                 className="w-full h-full object-cover rounded-3xl"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-3xl"></div>
